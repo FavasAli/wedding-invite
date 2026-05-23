@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammed Yaseen & Ayisha — Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1209;--gold:#b8924a;--gold2:#e4c07a;--cream:#fef9f0;
+  --warm:#f7efe0;--rose:#c8606a;--rose-l:#faeaea;--green:#4a7a5a;
+  --muted:#7a6040;--border:#e8d8b8;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',sans-serif;font-weight:300;
+  background:var(--cream);color:var(--ink);
+  min-height:100vh;display:flex;align-items:center;
+  justify-content:center;padding:1.5rem 1rem;
+  overflow-x:hidden;
+}
+
+/* ─── PAGE SYSTEM ─── */
+.page{display:none;width:100%;max-width:480px;animation:pageIn .6s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── CARD ─── */
+.card{
+  background:#fff;border:1px solid var(--border);border-radius:4px;
+  position:relative;overflow:hidden;
+  box-shadow:0 8px 48px rgba(90,50,0,0.12);
+}
+.band{height:6px;background:linear-gradient(90deg,var(--rose),var(--gold),var(--rose));
+  background-size:200%;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
+
+/* corners */
+.corner{position:absolute;pointer-events:none;z-index:1;}
+.corner-tl{top:6px;left:0;width:110px;opacity:.7}
+.corner-tr{top:6px;right:0;width:110px;opacity:.7;transform:scaleX(-1)}
+
+/* ─── ENTRANCE ANIMATIONS ─── */
+.fade-in{opacity:0;animation:fadeUp .7s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.fade-in:nth-child(1){animation-delay:.1s}
+.fade-in:nth-child(2){animation-delay:.2s}
+.fade-in:nth-child(3){animation-delay:.3s}
+.fade-in:nth-child(4){animation-delay:.4s}
+.fade-in:nth-child(5){animation-delay:.5s}
+.fade-in:nth-child(6){animation-delay:.6s}
+.fade-in:nth-child(7){animation-delay:.7s}
+.fade-in:nth-child(8){animation-delay:.8s}
+.fade-in:nth-child(9){animation-delay:.9s}
+.fade-in:nth-child(10){animation-delay:1s}
+.fade-in:nth-child(11){animation-delay:1.1s}
+
+/* ─── CONTENT ─── */
+.content{padding:1.8rem 2rem 1.4rem;position:relative;z-index:2}
+
+.bismillah{text-align:center;font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.1rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.4rem;}
+.bismillah-sub{text-align:center;font-size:.78rem;color:var(--muted);margin-bottom:1rem;}
+.invite-line{text-align:center;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.9rem;}
+
+.couple{text-align:center;margin-bottom:.3rem;}
+.groom,.bride{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;
+  color:var(--ink);line-height:1.1;display:block;}
+.weds{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;
+  color:var(--rose);display:block;margin:.2rem 0;}
+
+.rule{display:flex;align-items:center;gap:.75rem;margin:.9rem auto;max-width:240px;}
+.rule-line{flex:1;height:1px;background:var(--border)}
+.rule-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+.family{text-align:center;font-size:.8rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem;}
+.family strong{font-weight:500;color:var(--ink)}
+
+/* ─── EVENTS ─── */
+.events{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.9rem;}
+.event-card{
+  background:var(--warm);border:1px solid var(--border);border-radius:3px;
+  padding:.8rem .7rem;text-align:center;position:relative;overflow:hidden;
+  transition:transform .25s,box-shadow .25s;cursor:default;
+}
+.event-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(184,146,74,.15)}
+.event-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));}
+.event-tag{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+.event-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--ink);margin-bottom:.35rem;}
+.event-detail{font-size:.76rem;color:var(--muted);line-height:1.6}
+.event-detail strong{color:var(--ink);font-weight:500}
+
+/* ─── VENUE ─── */
+.venue-block{text-align:center;background:var(--warm);border:1px solid var(--border);
+  border-radius:3px;padding:.85rem 1rem;margin-bottom:.9rem;
+  transition:transform .25s,box-shadow .25s;}
+.venue-block:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(184,146,74,.12)}
+.venue-tag{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;}
+.venue-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--ink);margin-bottom:.2rem;}
+.venue-addr{font-size:.78rem;color:var(--muted);line-height:1.6}
+.map-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:.45rem;
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);
+  text-decoration:none;border-bottom:1px solid var(--rose-l);transition:border-color .2s;}
+.map-link:hover{border-color:var(--rose)}
+.map-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ─── COUNTDOWN ─── */
+.cd-label{text-align:center;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.5rem;}
+.countdown{display:flex;justify-content:center;align-items:center;gap:.45rem;margin-bottom:.9rem;}
+.cd-box{text-align:center;min-width:46px;}
+.cd-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--rose);line-height:1;
+  transition:transform .15s;}
+.cd-num.flip{animation:flip .3s ease}
+@keyframes flip{0%{transform:scaleY(1)}50%{transform:scaleY(.6)}100%{transform:scaleY(1)}}
+.cd-lbl{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.1rem;}
+.cd-sep{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);margin-top:-.35rem;}
+
+/* ─── RSVP BLOCK ─── */
+.rsvp-block{background:var(--rose-l);border:1px solid #f0c8ca;border-radius:3px;
+  padding:1rem;text-align:center;margin-bottom:.9rem;}
+
+.rsvp-q{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--ink);margin-bottom:.2rem;}
+.rsvp-hint{font-size:.73rem;color:var(--muted);margin-bottom:.7rem;}
+.name-input{width:100%;padding:.58rem .8rem;border:1px solid #f0c8ca;border-radius:3px;
+  font-family:'Nunito',sans-serif;font-size:.85rem;background:#fff;color:var(--ink);
+  outline:none;margin-bottom:.55rem;transition:border-color .2s,box-shadow .2s;}
+.name-input:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(200,96,106,.12)}
+.name-input::placeholder{color:#c0a0a0}
+.name-input.shake{animation:shake .4s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+.guest-row{display:flex;align-items:center;justify-content:center;gap:.7rem;
+  margin-bottom:.7rem;font-size:.78rem;color:var(--muted);}
+.g-ctrl{display:flex;align-items:center;border:1px solid #f0c8ca;border-radius:3px;overflow:hidden;}
+.g-btn{width:30px;height:30px;border:none;background:#fce4e6;color:var(--rose);
+  font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .1s;font-family:'Nunito',sans-serif;}
+.g-btn:hover{background:var(--rose);color:#fff}
+.g-btn:active{transform:scale(.9)}
+.g-num{min-width:30px;text-align:center;font-family:'Playfair Display',serif;
+  font-size:1.15rem;color:var(--ink);transition:transform .2s;}
+.g-num.bump{animation:bump .3s ease}
+@keyframes bump{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
+
+.rsvp-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.btn-yes,.btn-no{padding:.6rem;border-radius:3px;font-family:'Nunito',sans-serif;
+  font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;
+  transition:all .22s;border:1px solid;}
+.btn-yes{background:var(--rose);border-color:var(--rose);color:#fff;}
+.btn-yes:hover{background:#a84850;transform:translateY(-1px);box-shadow:0 4px 12px rgba(200,96,106,.35)}
+.btn-yes:active{transform:scale(.97)}
+.btn-no{background:#fff;border-color:#e0b0b2;color:var(--muted);}
+.btn-no:hover{border-color:var(--muted);transform:translateY(-1px)}
+.btn-no:active{transform:scale(.97)}
+
+/* ─── COUNT BOARD ─── */
+.count-board{display:flex;gap:.6rem;margin-bottom:.9rem;}
+.cnt-card{flex:1;text-align:center;background:var(--warm);border:1px solid var(--border);
+  border-radius:3px;padding:.6rem .4rem;transition:transform .25s;}
+.cnt-num{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold);
+  transition:transform .3s;}
+.cnt-num.pop{animation:pop .4s cubic-bezier(.36,.07,.19,.97)}
+@keyframes pop{0%{transform:scale(1)}30%{transform:scale(1.5)}60%{transform:scale(.9)}100%{transform:scale(1)}}
+.cnt-lbl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.1rem;}
+
+.quran-note{text-align:center;font-size:.72rem;color:var(--muted);font-style:italic;margin-bottom:.4rem;}
+
+/* ─── FOOTER ─── */
+.card-footer{background:var(--ink);padding:.85rem 1rem;text-align:center;}
+.footer-names{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--gold2);margin-bottom:.2rem;}
+.footer-date{font-size:.68rem;letter-spacing:.2em;color:#7a6040;}
+
+/* ════════════════════════════════
+   ─── GREETING PAGE ───
+════════════════════════════════ */
+#page-greeting{
+  position:relative;min-height:100vh;
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem 1.5rem;
+}
+#page-greeting.active{display:flex}
+
+/* petals canvas */
+#petal-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+
+.greeting-card{position:relative;
+  position:relative;z-index:2;
+  background:#fff;border:1px solid var(--border);border-radius:4px;
+  max-width:400px;width:100%;
+  box-shadow:0 12px 60px rgba(90,50,0,.14);
+  overflow:hidden;
+  animation:greetIn .8s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes greetIn{
+  from{opacity:0;transform:scale(.88) translateY(30px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+.greet-band{height:5px;background:linear-gradient(90deg,var(--rose),var(--gold),var(--rose));
+  background-size:200%;animation:shimmer 3s linear infinite;}
+
+.greet-body{padding:2.2rem 2rem 1.8rem;}
+
+/* big heart */
+.heart-wrap{margin:0 auto 1.2rem;width:72px;height:72px;position:relative;display:flex;align-items:center;justify-content:center;}
+.heart-svg{animation:heartbeat 1.4s ease infinite;}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.18)}28%{transform:scale(1)}42%{transform:scale(1.12)}70%{transform:scale(1)}}
+
+.greet-arabic{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);margin-bottom:.3rem;}
+.greet-sub-arabic{font-size:.75rem;color:var(--muted);margin-bottom:1.2rem;}
+
+.greet-name{font-family:'Playfair Display',serif;font-size:2rem;color:var(--ink);
+  margin-bottom:.4rem;animation:nameGlow 2s ease-in-out infinite alternate;}
+@keyframes nameGlow{from{color:var(--ink)}to{color:var(--rose)}}
+
+.greet-msg{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.3rem;}
+
+.greet-couple{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;
+  color:var(--rose);margin-bottom:.3rem;}
+.greet-date{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.3rem;}
+
+/* info pills */
+.greet-pills{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1.4rem;}
+.pill{background:var(--warm);border:1px solid var(--border);border-radius:20px;
+  padding:.35rem .9rem;font-size:.73rem;color:var(--muted);}
+.pill strong{color:var(--ink);font-weight:500;}
+
+/* add to calendar btn */
+.cal-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.65rem 1.6rem;border-radius:3px;
+  background:var(--rose);color:#fff;border:none;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:.75rem;letter-spacing:.12em;
+  text-transform:uppercase;transition:all .22s;text-decoration:none;
+}
+.cal-btn:hover{background:#a84850;transform:translateY(-1px);box-shadow:0 4px 14px rgba(200,96,106,.35)}
+
+.greet-footer{background:var(--warm);padding:.7rem 1rem;border-top:1px solid var(--border);}
+.greet-footer p{font-size:.7rem;color:var(--muted);font-style:italic;}
+
+/* ─── CONFETTI particles ─── */
+.confetti-burst{pointer-events:none;position:fixed;z-index:999;}
+
+/* ─── DECLINE PAGE MINI ─── */
+.decline-card{
+  position:relative;z-index:2;background:#fff;border:1px solid var(--border);
+  border-radius:4px;max-width:360px;width:100%;padding:2.5rem 2rem;
+  box-shadow:0 12px 60px rgba(90,50,0,.12);text-align:center;
+  animation:greetIn .7s cubic-bezier(.22,1,.36,1) both;
+}
+.decline-icon{font-size:2.5rem;margin-bottom:1rem;animation:sway 2s ease-in-out infinite;}
+@keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.decline-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:.5rem;}
+.decline-msg{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:.8rem;}
+.decline-dua{font-size:.78rem;color:var(--gold);font-style:italic;}
+
+/* ─── EDITABLE COUNTS ─── */
+.cnt-num[contenteditable="true"]{
+  cursor:text;
+  border-radius:3px;
+  transition:all .2s;
+}
+.cnt-num[contenteditable="true"]:hover{
+  background:rgba(184,146,74,.08);
+  transform:scale(1.05);
+}
+.cnt-num[contenteditable="true"]:focus{
+  outline:2px solid var(--gold);
+  outline-offset:2px;
+  background:rgba(184,146,74,.12);
+}
+.save-toast{
+  position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(60px);
+  background:var(--ink);color:var(--gold2);padding:.55rem 1.4rem;border-radius:30px;
+  font-size:.75rem;letter-spacing:.1em;z-index:9999;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s;
+  opacity:0;pointer-events:none;white-space:nowrap;
+}
+.save-toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+</style>
+</head>
+<body>
+
+<!-- ══════════ PAGE 1 — INVITATION ══════════ -->
+<div class="page active" id="page-invite">
+<div class="card">
+  <div class="band"></div>
+
+  <svg class="corner corner-tl" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="20" cy="55" rx="18" ry="8" fill="#a8c78a" transform="rotate(-40 20 55)"/>
+    <ellipse cx="10" cy="80" rx="14" ry="6" fill="#c8ddb0" transform="rotate(-60 10 80)"/>
+    <ellipse cx="55" cy="18" rx="16" ry="7" fill="#a8c78a" transform="rotate(20 55 18)"/>
+    <ellipse cx="80" cy="10" rx="12" ry="5" fill="#c8ddb0" transform="rotate(40 80 10)"/>
+    <circle cx="38" cy="38" r="20" fill="#f5c6ca" opacity=".75"/>
+    <circle cx="38" cy="38" r="10" fill="#e8939a" opacity=".85"/>
+    <circle cx="38" cy="38" r="4" fill="#fff" opacity=".9"/>
+    <circle cx="15" cy="30" r="12" fill="#f5d4d6" opacity=".6"/>
+    <circle cx="15" cy="30" r="5" fill="#d4898d" opacity=".75"/>
+    <circle cx="62" cy="15" r="10" fill="#f0b8bc" opacity=".6"/>
+    <circle cx="62" cy="15" r="4" fill="#c96e74" opacity=".75"/>
+  </svg>
+  <svg class="corner corner-tr" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="20" cy="55" rx="18" ry="8" fill="#a8c78a" transform="rotate(-40 20 55)"/>
+    <ellipse cx="10" cy="80" rx="14" ry="6" fill="#c8ddb0" transform="rotate(-60 10 80)"/>
+    <ellipse cx="55" cy="18" rx="16" ry="7" fill="#a8c78a" transform="rotate(20 55 18)"/>
+    <ellipse cx="80" cy="10" rx="12" ry="5" fill="#c8ddb0" transform="rotate(40 80 10)"/>
+    <circle cx="38" cy="38" r="20" fill="#f5c6ca" opacity=".75"/>
+    <circle cx="38" cy="38" r="10" fill="#e8939a" opacity=".85"/>
+    <circle cx="38" cy="38" r="4" fill="#fff" opacity=".9"/>
+    <circle cx="15" cy="30" r="12" fill="#f5d4d6" opacity=".6"/>
+    <circle cx="15" cy="30" r="5" fill="#d4898d" opacity=".75"/>
+    <circle cx="62" cy="15" r="10" fill="#f0b8bc" opacity=".6"/>
+    <circle cx="62" cy="15" r="4" fill="#c96e74" opacity=".75"/>
+  </svg>
+
+  <div class="content">
+
+    <div class="fade-in">
+      <p class="bismillah">﷽</p>
+      <p class="bismillah-sub">In the name of Allah, the Most Gracious, the Most Merciful</p>
+    </div>
+
+    <p class="invite-line fade-in">— With the blessings of Allah —</p>
+
+    <div class="couple fade-in">
+      <span class="groom">Muhammed Yaseen</span>
+      <span class="weds">weds</span>
+      <span class="bride">Ayisha</span>
+    </div>
+
+    <div class="rule fade-in"><div class="rule-line"></div><div class="rule-dot"></div><div class="rule-line"></div></div>
+
+    <div class="family fade-in">
+      <strong>S/O Placeholder Father</strong> &amp; <strong>Placeholder Mother</strong><br>
+      <span style="font-size:.7rem;letter-spacing:.08em">weds</span><br>
+      <strong>D/O Placeholder Father</strong> &amp; <strong>Placeholder Mother</strong><br>
+      <span style="font-size:.7rem;color:#b09080;margin-top:.2rem;display:block">Warmly invite you and your family</span>
+    </div>
+
+    <div class="rule fade-in"><div class="rule-line"></div><div class="rule-dot"></div><div class="rule-line"></div></div>
+
+    <div class="events fade-in">
+      <div class="event-card">
+        <p class="event-tag">Nikah</p>
+        <p class="event-name">Nikah Ceremony</p>
+        <p class="event-detail"><strong>26th June 2026</strong><br>10:00 AM onwards<br><span style="font-size:.7rem">Placeholder Masjid</span></p>
+      </div>
+      <div class="event-card">
+        <p class="event-tag">Reception</p>
+        <p class="event-name">Walima Reception</p>
+        <p class="event-detail"><strong>26th June 2026</strong><br>7:00 PM onwards<br><span style="font-size:.7rem">Placeholder Hall</span></p>
+      </div>
+    </div>
+
+    <div class="venue-block fade-in">
+      <p class="venue-tag">Venue</p>
+      <p class="venue-name">Placeholder Event Hall</p>
+      <p class="venue-addr">Placeholder Street, Area Name<br>Kozhikode, Kerala – 673 001</p>
+      <a class="map-link" href="https://maps.google.com" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Open in Maps
+      </a>
+    </div>
+
+    <p class="cd-label fade-in">Counting down to the big day</p>
+    <div class="countdown fade-in">
+      <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl">Days</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-lbl">Hours</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-lbl">Mins</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl">Secs</div></div>
+    </div>
+
+    <div class="rsvp-block fade-in" id="rsvp-block">
+      <div id="rsvp-form">
+        <p class="rsvp-q">Will you be joining us?</p>
+        <p class="rsvp-hint">Please confirm your attendance</p>
+        <input class="name-input" type="text" id="rsvp-name" placeholder="Your full name" />
+        <div class="guest-row">
+          <span>Number of guests</span>
+          <div class="g-ctrl">
+            <button type="button" class="g-btn" id="g-minus">−</button>
+            <span class="g-num" id="g-num">1</span>
+            <button type="button" class="g-btn" id="g-plus">+</button>
+          </div>
+        </div>
+        <div class="rsvp-btns">
+          <button type="button" class="btn-yes" id="btn-accept">✓ Joyfully Accept</button>
+          <button type="button" class="btn-no" id="btn-decline">✗ Decline</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Count board hidden - tracked via Google Sheets -->
+
+    <p class="quran-note fade-in">"And of His signs is that He created for you mates from among yourselves"<br><span style="font-size:.65rem">— Quran 30:21</span></p>
+
+  </div>
+
+  <div class="card-footer">
+    <p class="footer-names">Muhammed Yaseen &amp; Ayisha</p>
+    <p class="footer-date">26 · June · 2026 &nbsp;·&nbsp; Kozhikode, Kerala</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ PAGE 2 — GREETING (ACCEPT) ══════════ -->
+<div class="page" id="page-greeting">
+  <canvas id="petal-canvas"></canvas>
+
+  <div class="greeting-card">
+    <div class="greet-band"></div>
+    <div class="greet-body">
+
+      <div class="heart-wrap">
+        <svg width="72" height="65" viewBox="0 0 72 65" class="heart-svg">
+          <path d="M36 62 C36 62 4 42 4 20 C4 10 12 4 20 4 C26 4 32 8 36 14 C40 8 46 4 52 4 C60 4 68 10 68 20 C68 42 36 62 36 62Z"
+            fill="#c8606a" opacity=".15"/>
+          <path d="M36 56 C36 56 6 37 6 18 C6 10 13 5 21 5 C27 5 33 9 36 15 C39 9 45 5 51 5 C59 5 66 10 66 18 C66 37 36 56 36 56Z"
+            fill="#c8606a"/>
+        </svg>
+      </div>
+
+      <p class="greet-arabic">بَارَكَ اللهُ لَكُم</p>
+      <p class="greet-sub-arabic">May Allah bless you</p>
+
+      <p class="greet-name" id="greet-name">Dear Guest</p>
+
+      <p class="greet-msg" id="greet-msg">
+        JazakAllah Khair for confirming!<br>
+        We are overjoyed to have you with us on this blessed day.<br>
+        Your presence will make our celebration even more special. 🤍
+      </p>
+
+      <p class="greet-couple">Muhammed Yaseen &amp; Ayisha</p>
+      <p class="greet-date">26 · June · 2026</p>
+
+      <div class="greet-pills">
+        <div class="pill">📍 <strong>Placeholder Hall</strong></div>
+        <div class="pill">🕖 <strong>7:00 PM</strong> onwards</div>
+        <div class="pill" id="greet-guest-pill">👥 <strong id="greet-guests">1 Guest</strong></div>
+      </div>
+
+      <a class="cal-btn" href="https://calendar.google.com/calendar/r/eventedit?text=Muhammed+Yaseen+%26+Ayisha+Wedding&dates=20260626T130000Z/20260626T160000Z&details=Wedding+Reception&location=Kozhikode,Kerala" target="_blank">
+        + Add to Calendar
+      </a>
+
+      <button type="button" class="edit-count-btn" id="edit-count-btn" style="margin-top:1rem;padding:.5rem 1.2rem;border-radius:3px;background:#fff;color:var(--muted);border:1px solid var(--border);cursor:pointer;font-family:'Nunito',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;" onclick="location.reload()">↩ Need to change? Go back</button>
+
+    </div>
+    <div class="greet-footer">
+      <p>"Indeed, with hardship comes ease — and with love, a lifetime of joy." 🌸</p>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- ══════════ PAGE 3 — DECLINE ══════════ -->
+<div class="page" id="page-decline">
+  <div class="decline-card">
+    <div class="decline-icon">🤲</div>
+    <p class="decline-title" id="decline-name">We'll miss you.</p>
+    <p class="decline-msg">Thank you for letting us know. Although you won't be with us in person, you will surely be in our hearts and prayers on this blessed day.</p>
+    <p class="decline-dua">May Allah fill your days with happiness and barakah. 🌙</p>
+  </div>
+</div>
+
+<script>
+// ─── COUNTDOWN ───
+const target = new Date('2026-06-26T19:00:00');
+const prevVals = {d:'',h:'',m:'',s:''};
+function tick(){
+  const diff = target - new Date();
+  if(diff<=0) return;
+  const d=String(Math.floor(diff/86400000));
+  const h=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+  const m=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  const s=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  [['cd-d',d,'d'],['cd-h',h,'h'],['cd-m',m,'m'],['cd-s',s,'s']].forEach(([id,val,key])=>{
+    const el=document.getElementById(id);
+    if(val!==prevVals[key]){
+      el.classList.remove('flip');
+      void el.offsetWidth;
+      el.classList.add('flip');
+      el.textContent=val;
+      prevVals[key]=val;
+    }
+  });
+}
+tick(); setInterval(tick,1000);
+
+// ─── GUEST COUNTER ───
+let guests=1;
+document.getElementById('g-minus').addEventListener('click',(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  if(guests>1){
+    guests--;
+    const el=document.getElementById('g-num');
+    el.textContent=guests;
+    el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');
+  }
+  return false;
+});
+document.getElementById('g-plus').addEventListener('click',(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  if(guests<10){
+    guests++;
+    const el=document.getElementById('g-num');
+    el.textContent=guests;
+    el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');
+  }
+  return false;
+});
+
+// ─── GOOGLE SHEETS INTEGRATION ───
+// Replace with your Google Apps Script Web App URL
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbw2BJ2gNn7Fc6s0sE7GP8zeSdvvRvdopWDYNMaa8EzakKW1r6HpeJF5Zs9K9Giu9CrA/exec';
+
+function sendToGoogleSheets(data) {
+  console.log('Sending data to Google Sheets:', data);
+  
+  return fetch(GOOGLE_SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    console.log('Data sent successfully');
+  })
+  .catch(err => {
+    console.error('Error sending to Google Sheets:', err);
+  });
+}
+
+// ─── PAGE SWITCH ───
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='';});
+  const pg=document.getElementById(id);
+  pg.classList.add('active');
+  if(id==='page-greeting') pg.style.display='flex';
+  else if(id==='page-decline') pg.style.display='flex';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── CONFETTI BURST ───
+function confettiBurst(){
+  const colors=['#c8606a','#b8924a','#e4c07a','#a8c78a','#f5c6ca','#fff'];
+  for(let i=0;i<60;i++){
+    const dot=document.createElement('div');
+    const size=Math.random()*8+4;
+    Object.assign(dot.style,{
+      position:'fixed',
+      left:Math.random()*100+'vw',
+      top:'-10px',
+      width:size+'px',height:size+'px',
+      borderRadius:Math.random()>.5?'50%':'2px',
+      background:colors[Math.floor(Math.random()*colors.length)],
+      zIndex:9999,
+      pointerEvents:'none',
+      opacity:'1',
+      transition:`top ${1.5+Math.random()*1.5}s ease, opacity ${2+Math.random()}s ease, left ${.5+Math.random()}s ease`
+    });
+    document.body.appendChild(dot);
+    setTimeout(()=>{
+      dot.style.top=(60+Math.random()*80)+'vh';
+      dot.style.left=(parseFloat(dot.style.left)+(-30+Math.random()*60))+'vw';
+      dot.style.opacity='0';
+    },50);
+    setTimeout(()=>dot.remove(),3500);
+  }
+}
+
+// ─── PETAL RAIN ───
+let petalAnim;
+function startPetals(){
+  const canvas=document.getElementById('petal-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+  const petals=[];
+  for(let i=0;i<35;i++){
+    petals.push({
+      x:Math.random()*canvas.width,y:Math.random()*canvas.height-canvas.height,
+      r:Math.random()*6+4,vy:Math.random()*1.5+0.6,vx:Math.random()*.8-.4,
+      rot:Math.random()*Math.PI*2,rotV:(Math.random()-.5)*.04,
+      color:['#f5c6ca','#e8939a','#f5d4d6','#fce4e6','#e4c07a'][Math.floor(Math.random()*5)]
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    petals.forEach(p=>{
+      ctx.save();
+      ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+      ctx.beginPath();
+      ctx.ellipse(0,0,p.r,p.r*1.6,0,0,Math.PI*2);
+      ctx.fillStyle=p.color;ctx.globalAlpha=.7;ctx.fill();
+      ctx.restore();
+      p.x+=p.vx;p.y+=p.vy;p.rot+=p.rotV;
+      if(p.y>canvas.height){p.y=-10;p.x=Math.random()*canvas.width;}
+    });
+    petalAnim=requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ─── RSVP ACTIONS ───
+document.getElementById('btn-accept').addEventListener('click',(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  const name=document.getElementById('rsvp-name').value.trim();
+  if(!name){
+    const inp=document.getElementById('rsvp-name');
+    inp.style.borderColor='#e8939a';
+    inp.classList.remove('shake');void inp.offsetWidth;inp.classList.add('shake');
+    inp.focus();return false;
+  }
+  
+  // Send to Google Sheets
+  const formData = {
+    name: name,
+    guests: guests,
+    response: 'Accepted',
+    timestamp: new Date().toISOString()
+  };
+  sendToGoogleSheets(formData);
+  
+  // greeting page
+  document.getElementById('greet-name').textContent='Dear '+name+' 🤍';
+  document.getElementById('greet-guests').textContent=guests+(guests>1?' Guests':' Guest')+' confirmed';
+  // transition
+  confettiBurst();
+  setTimeout(()=>{
+    showPage('page-greeting');
+    startPetals();
+  },400);
+  return false;
+});
+
+document.getElementById('btn-decline').addEventListener('click',(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  const name=document.getElementById('rsvp-name').value.trim();
+  if(!name){
+    const inp=document.getElementById('rsvp-name');
+    inp.style.borderColor='#e8939a';
+    inp.classList.remove('shake');void inp.offsetWidth;inp.classList.add('shake');
+    inp.focus();return false;
+  }
+  
+  // Send to Google Sheets
+  const formData = {
+    name: name,
+    guests: 0,
+    response: 'Declined',
+    timestamp: new Date().toISOString()
+  };
+  sendToGoogleSheets(formData);
+  
+  document.getElementById('decline-name').textContent='We\'ll miss you, '+name+'.';
+  setTimeout(()=>showPage('page-decline'),200);
+  return false;
+});
+</script>
+
+<script>
+// Google Sheets setup instructions:
+// 1. Create a new Google Sheet with headers: Timestamp | Name | Number of Guests | Response
+// 2. Go to Extensions > Apps Script
+// 3. Paste the IMPROVED code below (it updates existing entries instead of duplicating)
+// 4. Deploy as Web App (Anyone can access)
+// 5. Copy the URL and replace GOOGLE_SHEET_URL above
+
+/*
+IMPROVED Google Apps Script code (updates existing entries):
+
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    
+    // Check if this person already submitted
+    var dataRange = sheet.getDataRange();
+    var values = dataRange.getValues();
+    var nameColumn = 1; // Column B (Name)
+    var updated = false;
+    
+    // Skip header row, search for existing name
+    for (var i = 1; i < values.length; i++) {
+      if (values[i][nameColumn] && values[i][nameColumn].toString().toLowerCase() === data.name.toLowerCase()) {
+        // Update existing row
+        sheet.getRange(i + 1, 1, 1, 4).setValues([[
+          new Date(data.timestamp),
+          data.name,
+          data.guests,
+          data.response
+        ]]);
+        updated = true;
+        break;
+      }
+    }
+    
+    // If not found, add new row
+    if (!updated) {
+      sheet.appendRow([
+        new Date(data.timestamp),
+        data.name,
+        data.guests,
+        data.response
+      ]);
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({status: 'success', updated: updated}));
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({status: 'error', message: error.toString()}));
+  }
+}
+*/
+</script>
+
+</body>
+</html>
