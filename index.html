@@ -257,6 +257,9 @@ body{
 .pill{background:var(--warm);border:1px solid var(--border);border-radius:20px;
   padding:.35rem .9rem;font-size:.73rem;color:var(--muted);}
 .pill strong{color:var(--ink);font-weight:500;}
+.pill.clickable{cursor:pointer;transition:all .2s;}
+.pill.clickable:hover{background:var(--rose-l);border-color:var(--rose);transform:translateY(-2px);box-shadow:0 4px 12px rgba(200,96,106,.15)}
+.pill.clickable:active{transform:translateY(0)}
 
 /* add to calendar btn */
 .cal-btn{
@@ -310,6 +313,13 @@ body{
   opacity:0;pointer-events:none;white-space:nowrap;
 }
 .save-toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+/* ─── RESPONSIVE / MOBILE ─── */
+@media (max-width: 480px) {
+  #page-greeting{padding:.5rem;}
+  .greeting-card{max-width:100%;}
+  .greet-body{padding:1.5rem 1rem 1.2rem;}
+}
 </style>
 </head>
 <body>
@@ -458,7 +468,7 @@ body{
       <p class="greet-date">28 · June · 2026</p>
 
       <div class="greet-pills">
-        <div class="pill">📍 <strong>Thottathil House</strong></div>
+        <div class="pill clickable" id="location-pill">📍 <strong>Thottathil House</strong></div>
         <div class="pill">🕖 <strong>6:00 PM</strong> onwards</div>
         <div class="pill" id="greet-guest-pill">👥 <strong id="greet-guests">1 Guest</strong></div>
       </div>
@@ -627,6 +637,14 @@ function startPetals(){
     petalAnim=requestAnimationFrame(draw);
   }
   draw();
+}
+
+// ─── LOCATION PILL CLICK ───
+const locationPill = document.getElementById('location-pill');
+if(locationPill){
+  locationPill.addEventListener('click',()=>{
+    window.open('https://www.google.com/maps/place/Thottathil+House/@11.4008095,75.8804276,1546m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3ba667d0d7ad827b:0x3a56a7601e4224fc!8m2!3d11.4008095!4d75.8830025!16s%2Fg%2F11vbsmzf8f?entry=tts&g_ep=EgoyMDI2MDUyMC4wIPu8ASoASAFQAw%3D%3D&skid=d97ef52b-11a4-4cba-adc6-ca83c598cdc8','_blank');
+  });
 }
 
 // ─── RSVP ACTIONS ───
