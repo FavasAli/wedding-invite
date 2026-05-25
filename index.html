@@ -123,7 +123,9 @@ body{
 /* ─── VENUE ─── */
 .venue-block{text-align:center;background:var(--warm);border:1px solid var(--border);
   border-radius:3px;padding:.85rem 1rem;margin-bottom:.9rem;
-  transition:transform .25s,box-shadow .25s;}
+  transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;}
+.venue-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));}
 .venue-block:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(184,146,74,.12)}
 .venue-tag{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;}
 .venue-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--ink);margin-bottom:.2rem;}
@@ -197,9 +199,9 @@ body{
 .quran-note{text-align:center;font-size:.72rem;color:var(--muted);font-style:italic;margin-bottom:.4rem;}
 
 /* ─── FOOTER ─── */
-.card-footer{background:var(--ink);padding:.85rem 1rem;text-align:center;}
-.footer-names{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--gold2);margin-bottom:.2rem;}
-.footer-date{font-size:.68rem;letter-spacing:.2em;color:#7a6040;}
+.card-footer{background:var(--warm);padding:.85rem 1rem;text-align:center;border-top:1px solid var(--border);}
+.footer-names{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--rose);margin-bottom:.2rem;}
+.footer-date{font-size:.68rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;}
 
 /* ════════════════════════════════
    ─── GREETING PAGE ───
@@ -354,7 +356,7 @@ body{
     <p class="invite-line fade-in">— With the blessings of Allah —</p>
 
     <div class="couple fade-in">
-      <span class="groom">Muhammed Yaseen</span>
+      <span class="groom">Yaseen</span>
       <span class="weds">weds</span>
       <span class="bride">Ayisha</span>
     </div>
@@ -369,19 +371,6 @@ body{
     </div>
 
     <div class="rule fade-in"><div class="rule-line"></div><div class="rule-dot"></div><div class="rule-line"></div></div>
-
-    <div class="events fade-in">
-      <div class="event-card">
-        <p class="event-tag">Nikah</p>
-        <p class="event-name">Nikah Ceremony</p>
-        <p class="event-detail"><strong>26th June 2026</strong><br>10:00 AM onwards<br><span style="font-size:.7rem">Placeholder Masjid</span></p>
-      </div>
-      <div class="event-card">
-        <p class="event-tag">Reception</p>
-        <p class="event-name">Walima Reception</p>
-        <p class="event-detail"><strong>26th June 2026</strong><br>7:00 PM onwards<br><span style="font-size:.7rem">Placeholder Hall</span></p>
-      </div>
-    </div>
 
     <div class="venue-block fade-in">
       <p class="venue-tag">Venue</p>
